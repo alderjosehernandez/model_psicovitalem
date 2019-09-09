@@ -20,12 +20,14 @@ class CreateGteSeccionesCursosTable extends Migration
             $table->string('url');
             $table->integer('no_seccion');
             $table->string('estado');
+            $table->integer('id_curso')->unsigned();
             $table->integer('id_test')->unsigned();
             $table->integer('id_foro')->unsigned();                       
             $table->timestamps();
 
 
             //modificadores
+            $table->foreign('id_curso')->references('id_curso')->on('gte_cursos');
             $table->foreign('id_test')->references('id_test')->on('gt_test');
             $table->foreign('id_foro')->references('id_foro')->on('gf_foros');            
             //$table->primary('id_seccion');
